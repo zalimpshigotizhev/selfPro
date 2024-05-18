@@ -1,7 +1,6 @@
 <script setup>
 import { reactive, ref } from 'vue'
 
-
 const formLabelAlign = reactive({
   name: '',
   email: '',
@@ -16,24 +15,26 @@ const props = defineProps({
         }
 })
 
-const form = ref("reg")
+const form = reactive({
+  state: "reg"
+})
 
 
 function setState (val){
-    form = val
+    form.state = val
 }
 // todo: Доделать состояние form (Войти/Рег) через useRootStore
+function sendDataServer(){
+
+}
 
 
-// export default {
-    
-// }
 </script>
 <template>
     <div class="root">
         <div :style="`background-image: url(${imgUrl})`" class="img"></div>
         <!-- <img src="../../assets/img/neuron.png" alt=""> -->
-        <div class="main">
+        <div class="main" v-if="form.state == 'reg'">
             <h1>Регистрация</h1>
             <div class="form">
                 <el-form
@@ -49,17 +50,43 @@ function setState (val){
                         <el-input v-model="formLabelAlign.email" />
                     </el-form-item>
                     <el-form-item label="Password">
-                        <el-input v-model="formLabelAlign.password" />
+                        <el-input v-model="formLabelAlign.password" type="password" autocomplete="off" />
                     </el-form-item>
                     <el-form-item label="Repeat Password">
-                        <el-input v-model="formLabelAlign.repeat_password" />
+                        <el-input v-model="formLabelAlign.repeat_password" type="password" autocomplete="off"  />
                     </el-form-item>
                 </el-form>
             </div>
             <div class="btns">
-                <el-button type="success" round class="btn-reg">Зарегистрироваться</el-button>
+                <el-button type="success" round class="btn-main">Зарегистрироваться</el-button>
                 <p>или</p>
-                <el-button type="success" round class="btn-join">Войти</el-button>
+                <el-button type="success" round class="btn-second" @click="setState('join')">Войти</el-button>
+            </div>
+        </div>
+        <div class="main" v-if="form.state == 'join'">
+            <h1>Вход</h1>
+            <div class="form">
+                <el-form
+                label-position="top"
+                label-width="auto"
+                :model="formLabelAlign"
+                style="max-width: 600px"
+                class="join"
+                >
+                    <el-form-item label="Email">
+                        <el-input v-model="formLabelAlign.email" />
+                    </el-form-item>
+
+                    <el-form-item label="Password">
+                        <el-input v-model="formLabelAlign.password" type="password" autocomplete="off" />
+                    </el-form-item>
+                    <a class="forge-password">Забыли пароль?</a>
+                </el-form>
+            </div>
+            <div class="btns">
+                <el-button type="success" round class="btn-main">Войти</el-button>
+                <p>или</p>
+                <el-button type="success" round class="btn-second" @click="setState('reg')">Зарегистрироваться</el-button>
             </div>
         </div>
     </div>
@@ -77,14 +104,21 @@ function setState (val){
     background-repeat: no-repeat
     background-position-x: auto
     background-position: center center
+    @media (min-width: $min-mobile) and (max-width: $max-mobile)
+        display: none
 
 .main
     position: relative
     width: 50%
     padding: 32px 40px
+    @media (min-width: $min-mobile) and (max-width: $max-mobile)
+        width: 100%
 
 .form
-    min-height: 350px
+    max-width: 450px
+    min-width: 200px
+    height: 350px
+    min-height: 300px
 
 h1
     font-family: "JetBrains ExtraBold", sans-serif
@@ -99,22 +133,24 @@ h1
         font-family: "JetBrains ExtraLight", sans-serif
         
 
-    .btn-reg
+    .btn-main
         margin: 10px
-        background-color: #247531
+        background-color: $pretty-green
         border: none
         padding: 20px
 
     
-    .btn-join
+    .btn-second
         margin: 10px
-        background-color: #7E2753
+        background-color: $pretty-purple
         border: none
         padding: 10px
 
+.join
+    padding-top: 5em
 
-
-
+.forge-password
+    padding-left: 20em
 
     
 
