@@ -1,10 +1,12 @@
 <script setup>
-// export default {
-    
-// }
+import Header from 'components/Header.vue'
+
+
 </script>
 <template>
+    <Header/>
     <div>
+
         <p>Intensive</p>
         <hr>
     </div>
