@@ -91,7 +91,6 @@ const navigateTo = (routeName) => {
 
             </div>
         </div>
-        <hr>
     </div>
 </template>
 <style lang="sass" scoped>
@@ -142,8 +141,9 @@ const navigateTo = (routeName) => {
             font-size: 15px
 
     &:hover
-        .glick
-            background-image: url('../assets/img/glick-hover.svg')
+        .img
+            background-image: url('../assets/img/neuron1.png')
+
 
 .nav
     display: flex
@@ -172,7 +172,7 @@ const navigateTo = (routeName) => {
     
     .active
         background-color: $text
-        color: #ffffff
+        color: $background
         padding: 14px 24px
         border-radius: 8px
 
