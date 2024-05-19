@@ -1,4 +1,6 @@
 export const ROUTES_PATHS = {
     HOME: '/',
-    AUTH: '/auth'
+    AUTH: '/auth',
+    PROFILE: '/profile',
 }
+export default ROUTES_PATHS;

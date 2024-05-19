@@ -1,5 +1,25 @@
 <script setup>
+import { reactive, computed } from 'vue'
+import { useRoute, useRouter } from 'vue-router'
+import ROUTES_PATHS from '../constans/router'
 
+
+const route = useRoute();
+const router = useRouter();
+const routeName = computed(() => route.name);
+console.log(routeName);
+
+const nav_mob = reactive({
+    state: null
+}
+)
+function setStateNavMobile(val){
+    nav_mob.state = val
+}
+
+const navigateTo = (routeName) => {
+      router.push({ name: routeName });
+};
 
 </script>
 <template>
@@ -14,10 +34,16 @@
             </div>
             <div class="nav">
 
-                <div class="nav-btn active">
+                <div
+                :class="routeName === ROUTES_PATHS.PROFILE ? 'nav-btn active' : 'nav-btn'"
+                @click="navigateTo(ROUTES_PATHS.PROFILE)"
+                >
                     Мой профиль
                 </div>
-                <div class="nav-btn">
+                <div
+                :class="routeName === ROUTES_PATHS.HOME ? 'nav-btn active' : 'nav-btn'"
+                @click="navigateTo(ROUTES_PATHS.HOME)"
+                >
                     Intensive
                 </div>
                 <div class="nav-btn">
@@ -29,9 +55,39 @@
                 <div class="nav-btn">
                     Anki <span class="soon">скоро</span>
                 </div>
+                <!-- Mobile -->
+                <div class="burger" @click="setStateNavMobile('open')"></div>
+                <div v-if="nav_mob.state == 'open'" class="nav-mob" >
+                    <div class="upper">
+                        <div class="closed" @click="setStateNavMobile(null)">
 
-                <div class="burger"></div>
-
+                        </div>
+                    </div>
+                    <div class="nav-mob-btns">
+                        <div 
+                        :class="routeName === ROUTES_PATHS.PROFILE ? 'mob-btn active-mob' : 'mob-btn'"
+                        @click="navigateTo(ROUTES_PATHS.PROFILE)"
+                        >
+                            Мой профиль
+                        </div>
+                        <div 
+                        :class="routeName === ROUTES_PATHS.HOME ? 'mob-btn active-mob' : 'mob-btn'"
+                        @click="navigateTo(ROUTES_PATHS.HOME)"
+                        >
+                            Intensive
+                        </div>
+                        <div class="mob-btn">
+                            ToDo <span>скоро</span>
+                        </div>
+                        <div class="mob-btn">
+                            Pomodoro <span>скоро</span>
+                        </div>
+                        
+                        <div class="mob-btn">
+                            Anki <span >скоро</span>
+                        </div>
+                    </div>
+                </div>
 
             </div>
         </div>
@@ -133,6 +189,61 @@
 
     @media (min-width: $min_mobile) and (max-width: $max_pad)
         display: block
+
+.nav-mob
+    @media (min-width: $min-mobile) and (max-width:$max-pad)
+        display: block
+
+    display: none
+    position: fixed
+    width: 95%
+    height: 95%
+    background-color: $background
+
+    top: 1em
+    left: 1em
+    bottom: 1em
+    right: 1em
+    border-radius: 10px
+    border: solid 0.1px
+
+    .upper
+        display: flex
+        justify-content: flex-end
+
+        .closed
+            cursor: pointer
+            background-image: url('../assets/img/x.png')
+            background-repeat: no-repeat
+            background-size: cover
+            margin: 30px
+            opacity: 80%
+            width: 50px
+            height: 50px
+
+    .nav-mob-btns
+        display: flex
+        align-items: center
+        flex-direction: column
+        justify-content: center
+        padding-top: 60px 
+        .mob-btn
+            cursor: pointer
+            font-family: "Prompt", sans-serif
+            font-weight: 600
+            font-style: normal
+            font-size: 20px
+
+            span
+                font-family: "Prompt", sans-serif
+                font-weight: 400
+                font-style: normal
+                font-size: 15px
+                color: $textMuted
+            
+        .active-mob
+            color: $textMuted
+
 
 
 
