@@ -1,5 +1,12 @@
 <script setup>
+import Month from './Month.vue'
+import { useRootStore } from '../../stores/root';
+import { storeToRefs } from 'pinia';
 
+
+const rootStore = useRootStore()
+rootStore.getLastFourMonths()
+const { four_months } = storeToRefs(rootStore)
 
 </script>
 <template>
@@ -7,20 +14,12 @@
         <div class="title">Four months</div>
         <div class="intensive">
             <div class="two-months">
-                <div class="month">
-    
-                </div>
-                <div class="month">
-                    
-                </div>
+                <Month :month = 'four_months[0]'/>
+                <Month :month = 'four_months[1]'/>
             </div>
             <div class="two-months">
-                <div class="month">
-    
-                </div>
-                <div class="month">
-                    
-                </div>
+                <Month :month = 'four_months[2]'/>
+                <Month :month = 'four_months[3]'/>
             </div>
         </div>
     </div>
@@ -48,14 +47,6 @@
         .two-months
             display: flex
             width: 314px
-            height: 161px
             margin: 10px
-            background-color: orange
 
-            .month
-                width: 142px
-                height: 161px
-                background-color: black
-                &:not(:last-child)
-                    margin-right: 30px
 </style>

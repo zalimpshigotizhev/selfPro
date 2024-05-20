@@ -7,7 +7,6 @@ import ROUTES_PATHS from '../constans/router'
 const route = useRoute();
 const router = useRouter();
 const routeName = computed(() => route.name);
-console.log(routeName);
 
 const nav_mob = reactive({
     state: null
