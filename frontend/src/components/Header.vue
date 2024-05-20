@@ -7,6 +7,7 @@ import ROUTES_PATHS from '../constans/router'
 const route = useRoute();
 const router = useRouter();
 const routeName = computed(() => route.name);
+console.log(routeName);
 
 const nav_mob = reactive({
     state: null
@@ -46,12 +47,6 @@ const navigateTo = (routeName) => {
                     Intensive
                 </div>
                 <div class="nav-btn">
-                    ToDo <span class="soon">скоро</span>
-                </div>
-                <div class="nav-btn">
-                    Pomodoro <span class="soon">скоро</span>
-                </div>
-                <div class="nav-btn">
                     Anki <span class="soon">скоро</span>
                 </div>
                 <!-- Mobile -->
@@ -75,13 +70,6 @@ const navigateTo = (routeName) => {
                         >
                             Intensive
                         </div>
-                        <div class="mob-btn">
-                            ToDo <span>скоро</span>
-                        </div>
-                        <div class="mob-btn">
-                            Pomodoro <span>скоро</span>
-                        </div>
-                        
                         <div class="mob-btn">
                             Anki <span >скоро</span>
                         </div>
