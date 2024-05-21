@@ -27,7 +27,7 @@ const { tip } = storeToRefs(rootStore)
                         <template #popper>
                             <div class="tip">
                                 <img src="../../assets/img/steve.gif" class="giffile">
-                                Сколько вы занимались за все время. Кликните чтобы увидеть информацию в минутах.
+                                Сколько вы занимались за все время. <br> <span>Кликните чтобы увидеть информацию в минутах.</span> 
                             </div>
                         </template>
                     </VTooltip>
@@ -44,7 +44,7 @@ const { tip } = storeToRefs(rootStore)
                         <template #popper>
                             <div class="tip">
                                 <img src="../../assets/img/calendar.gif" class="giffile">
-                                Сколько времени вы занимались в этом месяце. Кликните чтобы увидеть информацию в минутах.
+                                Сколько времени вы занимались в этом месяце. <br> <span>Кликните чтобы увидеть информацию в минутах.</span> 
                             </div>
                         </template>
                     </VTooltip>
@@ -58,7 +58,7 @@ const { tip } = storeToRefs(rootStore)
                     <template #popper>
                         <div class="tip">
                             <img src="../../assets/img/cat.gif" class="giffile">
-                            Сколько времени вы занимались в этом месяце.
+                            Сколько времени вы занимались на этой неделе.
                         </div>
                     </template>
                 </VTooltip>
