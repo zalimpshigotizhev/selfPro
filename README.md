@@ -8,10 +8,13 @@
   <img src="https://img.shields.io/badge/redis-%23DD0031.svg?&style=for-the-badge&logo=redis&logoColor=white" />
   <img src="https://img.shields.io/badge/PostgreSQL-316192?style=for-the-badge&logo=postgresql&logoColor=white">
   <img src="https://img.shields.io/badge/Figma-F24E1E?style=for-the-badge&logo=figma&logoColor=white" />
+  <img src="https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white" />
+  <img src="https://img.shields.io/badge/Docker-2CA5E0?style=for-the-badge&logo=docker&logoColor=white" />
+
 
 <div/>
 Большой проект с очень полезными приложениями. Бэкенд будет построен на DDD, фронтенд на Vue JS. <br>
-Конечный результат будет развернут на удаленном сервере. **Вход будет бесплатным, без смс, но с регистрацией!** <br>
+Конечный результат будет развернут на удаленном сервере. Вход будет бесплатным, без смс, но с регистрацией!
 <hr>
 
 ## Проект основан на том, чтоб каждый мог контролировать сколько времени было потрачено на тот или иной интенсив. В будущем буду добовлять новые приложение для бампа продуктивности, но это уже совсем другая история!
