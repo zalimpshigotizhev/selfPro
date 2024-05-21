@@ -1,8 +1,11 @@
 <script setup>
 import {Plus, Histogram } from '@element-plus/icons-vue'
-// export default {
-    
-// }
+import { useRootStore } from '@/stores/root';
+import { storeToRefs } from 'pinia';
+
+
+const rootStore = useRootStore()
+const { tip } = storeToRefs(rootStore)
 </script>
 <template>
     <div class="intensive-block">
@@ -17,17 +20,48 @@ import {Plus, Histogram } from '@element-plus/icons-vue'
 
             </div>
             <div class="total">
-                <div class="title">Total <div class="info"></div></div>
+                <div class="title">
+                    Total
+                    <VTooltip v-if="tip">
+                        <div class="info-icon" ></div>
+                        <template #popper>
+                            <div class="tip">
+                                <img src="../../assets/img/steve.gif" class="giffile">
+                                Сколько вы занимались за все время. Кликните чтобы увидеть информацию в минутах.
+                            </div>
+                        </template>
+                    </VTooltip>
+                </div>
+
                 <div class="total-time">13 h.</div>
                 <div class="click">click</div>
             </div>
             <div class="total">
-                <div class="title">Month<div class="info"></div></div>
+                <div class="title">
+                    Month
+                    <VTooltip v-if="tip">
+                        <div class="info-icon" ></div>
+                        <template #popper>
+                            <div class="tip">
+                                <img src="../../assets/img/calendar.gif" class="giffile">
+                                Сколько времени вы занимались в этом месяце. Кликните чтобы увидеть информацию в минутах.
+                            </div>
+                        </template>
+                    </VTooltip>
+                </div>
                 <div class="total-time">13 h.</div>
                 <div class="click">click</div>
             </div>
             <div class="week">
-                <div class="info"></div>
+                <VTooltip v-if="tip">
+                    <div class="info-icon" ></div>
+                    <template #popper>
+                        <div class="tip">
+                            <img src="../../assets/img/cat.gif" class="giffile">
+                            Сколько времени вы занимались в этом месяце.
+                        </div>
+                    </template>
+                </VTooltip>
                 week
                 <div class="week-days">
                     <div  class="day">

@@ -4,10 +4,18 @@ import { defineStore } from 'pinia'
 
 export const useRootStore = defineStore('root', {
   state: () => ({
+    tip: true,
     four_months: [],
 
   }),
   actions: {
+    onOffTip(){
+      if(this.tip){
+        this.tip = false
+      }else{
+        this.tip = true
+      }
+    },
     // Функция для создание диапазонов
     range(start, end) {
         const array = [];
