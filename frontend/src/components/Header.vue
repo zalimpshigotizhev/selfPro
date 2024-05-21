@@ -29,7 +29,7 @@ const navigateTo = (routeName) => {
             <div class="icon">
                 <div class="img"></div>
                 <div class="icon-span">
-                    <span class="self">self</span><div class="glick"></div><span class="progressive">Progressive</span>
+                    <span class="self">self</span><div class="glick"></div><span class="progressive">Progress</span>
                 </div>
             </div>
             <div class="nav">

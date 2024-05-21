@@ -1,6 +1,6 @@
 <script setup>
 import Header from 'components/Header.vue'
-import FourMonths from 'components/profile/FourMonths.vue'
+import IntensiveBlock from 'components/intensive/IntensiveBlock.vue'
 
 
 </script>
@@ -15,9 +15,7 @@ import FourMonths from 'components/profile/FourMonths.vue'
             </div>
             
         </div>
-        <div class="wrapper">
-            
-        </div>
+        <IntensiveBlock/>
     </div>
 </template>
 <style lang="sass" scoped>
@@ -34,11 +32,6 @@ import FourMonths from 'components/profile/FourMonths.vue'
 
         @media (min-width: $min_mobile) and (max-width: $max_mobile)
             font-size: 44px
-
-    .wrapper
-        display: flex
-        justify-content: space-between
-        
         
 
         

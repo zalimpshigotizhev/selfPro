@@ -28,6 +28,7 @@ console.log(props.month);
 </template>
 <style lang="sass" scoped>
 @import '../../assets/style/main'
+@import '../../assets/style/indicator-day'
 
 .month
     display: flex
@@ -44,26 +45,5 @@ console.log(props.month);
         display: flex
         flex-wrap: wrap
 
-        .day
-            display: flex
-            flex-direction: column
-            align-items: center
-            width: 16px
-            margin-top: 3px
 
-            &:not(:last-child)
-                margin-right: 5px
-
-            .date
-                width: 12px
-                height: 12px
-                font-family: "JetBrains ExtraLight", sans-serif
-                font-size: 8px
-
-            .indicator
-                width: 16px
-                height: 16px
-                background-color: $background
-                border: solid 0.5px
-                border-radius: 4px
 </style>
