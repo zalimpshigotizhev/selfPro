@@ -16,6 +16,8 @@ import IntensiveBlock from 'components/intensive/IntensiveBlock.vue'
             
         </div>
         <IntensiveBlock/>
+        <IntensiveBlock/>
+        <IntensiveBlock/>
     </div>
 </template>
 <style lang="sass" scoped>

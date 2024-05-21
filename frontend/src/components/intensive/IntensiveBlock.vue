@@ -17,16 +17,17 @@ import {Plus, Histogram } from '@element-plus/icons-vue'
 
             </div>
             <div class="total">
-                <div class="title">Total</div>
+                <div class="title">Total <div class="info"></div></div>
                 <div class="total-time">13 h.</div>
                 <div class="click">click</div>
             </div>
             <div class="total">
-                <div class="title">Month</div>
+                <div class="title">Month<div class="info"></div></div>
                 <div class="total-time">13 h.</div>
                 <div class="click">click</div>
             </div>
             <div class="week">
+                <div class="info"></div>
                 week
                 <div class="week-days">
                     <div  class="day">
@@ -101,6 +102,9 @@ import {Plus, Histogram } from '@element-plus/icons-vue'
     width: 1250px
     height: 295px
     border-radius: 10px
+
+    &:not(:last-child)
+        margin-bottom: 30px
         
 
 .wrapper
@@ -159,6 +163,8 @@ import {Plus, Histogram } from '@element-plus/icons-vue'
         font-family: "JetBrains Bold", sans-serif
         font-size: 42px
 
+        .title
+            display: flex
         .total-time
             width: 210px
             height: 44px
@@ -184,7 +190,7 @@ import {Plus, Histogram } from '@element-plus/icons-vue'
     font-family: "JetBrains ExtraLight", sans-serif
     font-size: 10px 
     width: 45px
-    height: 140px
+    height: 160px
 
     .week-days
         display: flex
