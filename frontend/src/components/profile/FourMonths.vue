@@ -28,8 +28,7 @@ const { four_months } = storeToRefs(rootStore)
 @import '../../assets/style/main'
 
 .root
-    display: flex
-    flex-direction: column
+    @include flex-column
     margin-left: 30px
     padding-right: 60px
 

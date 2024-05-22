@@ -14,35 +14,39 @@ const { tip } = storeToRefs(rootStore)
     <div class="intensive-block">
         <div class="wrapper">
             <div class="img"></div>
-            <div class="name-btns">
-                Redis 
-                <div class="btns">
-                    <Button
-                    :icon="Plus"
-                    
+            <div class="info">
+                <div class="name-btns">
+                    Redis 
+                    <div class="btns">
+                        <Button
+                        :icon="Plus"
+                        
+                        />
+                        <Button
+                        :icon="Histogram"
+                        />
+                    </div>
+                </div>
+                <div class="totals">
+                    <Total 
+                    class="tot"
+                    :name="'Total'" 
+                    :gifUrl="'.\\src\\assets\\img\\steve.gif'"
+                    :text="'Сколько вы занимались за все время.'"
                     />
-                    <Button
-                    :icon="Histogram"
+        
+                    <Total 
+                    class="tot"
+                    :name="'Month'"
+                    :gifUrl="'.\\src\\assets\\img\\calendar.gif'"
+                    :text="'Сколько вы занимались за месяц.'"
                     />
                 </div>
-            </div>
-            <div class="totals">
-                <Total 
-                :name="'Total'" 
-                :gifUrl="'.\\src\\assets\\img\\steve.gif'"
-                :text="'Сколько вы занимались за все время.'"
-                />
-    
-                <Total 
-                :name="'Month'"
-                :gifUrl="'.\\src\\assets\\img\\calendar.gif'"
-                :text="'Сколько вы занимались за месяц.'"
+                
+                <Week
+                :gifUrl="'.\\src\\assets\\img\\cat.gif'"
                 />
             </div>
-            
-            <Week
-            :gifUrl="'.\\src\\assets\\img\\cat.gif'"
-            />
         </div>
     </div>
 </template>
@@ -54,7 +58,8 @@ const { tip } = storeToRefs(rootStore)
     align-items: center
     background-color: white
     max-width: 1250px
-    height: 295px
+    max-height: 490px
+    min-height: 260px
     border-radius: 10px
     
 
@@ -65,11 +70,27 @@ const { tip } = storeToRefs(rootStore)
 .wrapper
     display: flex
     align-items: center
+    flex-wrap: wrap
+    @include respond-to(sm)
+        padding-bottom: 30px 
 
     .totals
         display: flex
-        
+        .tot
+            &:nth-child(1)
+                @include respond-to(md)
+                    display: none
+            &:nth-child(2)
+                @include respond-to(lg)
+                    display: none
 
+    .info
+        display: flex
+
+        @include respond-to(sm)
+            width: 90%
+            justify-content: center
+            padding-bottom: 30px
 
     .img
         max-width: 360px
@@ -87,12 +108,13 @@ const { tip } = storeToRefs(rootStore)
     
     .name-btns
         @include flex-column
-        
         justify-content: space-around
         font-family: "JetBrains Medium"
         font-size: 42px
         width: 230px
         height: 160px
+
+        @include respond-to(sm)
 
         .btns
             .el-button

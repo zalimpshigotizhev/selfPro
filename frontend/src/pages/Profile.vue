@@ -44,8 +44,7 @@ const { tip } = storeToRefs(rootStore)
 @import '../assets/style/main'
 
 .profile
-    display: flex
-    flex-direction: column
+    @include flex-column
     padding-bottom: 100px
 
     .wrapper
@@ -77,8 +76,8 @@ const { tip } = storeToRefs(rootStore)
                 background-size: cover
             
             .name-email
-                display: flex
-                flex-direction: column
+                @include flex-column
+                
                 margin-left: 40px 
                 
                 @media (min-width: $min_mobile) and (max-width: $max_pad)

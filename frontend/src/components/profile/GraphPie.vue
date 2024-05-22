@@ -30,8 +30,7 @@ const options = {
 @import '../../assets/style/main'
 
 .graph
-    display: flex
-    flex-direction: column
+    @include flex-column
     max-width: 280px
 
     @media (min-width: $min_mobile) and (max-width: $max_pad)

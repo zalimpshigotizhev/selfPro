@@ -11,10 +11,11 @@ import IntensiveBlock from 'components/intensive/IntensiveBlock.vue'
             <div class="title">Intensive</div>
             <div class="btns">
                 <el-button type="success" round class="first">add</el-button>
-                <el-button type="danger" round class="second">list</el-button>
+                <el-button type="danger" round class="second">history</el-button>
             </div>
             
         </div>
+        <IntensiveBlock/>
         <IntensiveBlock/>
     </div>
 </template>
@@ -22,8 +23,7 @@ import IntensiveBlock from 'components/intensive/IntensiveBlock.vue'
 @import '../assets/style/main'
 
 .intensive
-    display: flex
-    flex-direction: column
+    @include flex-column
     padding-bottom: 100px
 
 

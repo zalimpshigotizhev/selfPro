@@ -52,6 +52,8 @@ const props = defineProps({
     font-size: 42px
 
 
+    @include respond-to(sm)
+        display: none
 
 .title
     display: flex

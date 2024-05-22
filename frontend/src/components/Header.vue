@@ -91,8 +91,7 @@ const navigateTo = (routeName) => {
 
 .icon
     cursor: pointer
-    display: flex
-    flex-direction: column
+    @include flex-column
     align-items: center
     margin: 10px
     width: 130px

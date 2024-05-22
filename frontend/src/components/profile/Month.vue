@@ -31,8 +31,7 @@ console.log(props.month);
 @import '../../assets/style/indicator-day'
 
 .month
-    display: flex
-    flex-direction: column
+    @include flex-column
     width: 142px
 
     &:not(:last-child)

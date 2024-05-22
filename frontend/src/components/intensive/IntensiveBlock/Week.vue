@@ -93,8 +93,7 @@ const props = defineProps({
 @import '@/assets/style/main'
 @import '@/assets/style/indicator-day'
 .week
-    display: flex
-    flex-direction: column
+    @include flex-column
     align-items: center
     font-family: "JetBrains ExtraLight", sans-serif
     font-size: 10px 
