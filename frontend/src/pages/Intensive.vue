@@ -1,6 +1,11 @@
 <script setup>
 import Header from 'components/Header.vue'
 import IntensiveBlock from 'components/intensive/IntensiveBlock.vue'
+import Data from './dataset/intensive_list.json'
+
+// read file
+
+
 
 
 </script>
@@ -15,8 +20,8 @@ import IntensiveBlock from 'components/intensive/IntensiveBlock.vue'
             </div>
             
         </div>
-        <IntensiveBlock/>
-        <IntensiveBlock/>
+        <IntensiveBlock :data="intensive" v-for="intensive in Data.items" />
+
     </div>
 </template>
 <style lang="sass" scoped>

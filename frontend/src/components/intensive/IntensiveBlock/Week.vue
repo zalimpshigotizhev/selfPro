@@ -6,10 +6,6 @@ const rootStore = useRootStore();
 const { tip } = storeToRefs(rootStore);
 
 const props = defineProps({
-    icon:{
-        type: Object,
-        required: true
-    },
     gifUrl:{
         type: String,
         required: true

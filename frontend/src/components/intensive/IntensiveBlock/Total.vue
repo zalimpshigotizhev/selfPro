@@ -1,6 +1,7 @@
 <script setup>
 import { useRootStore } from '@/stores/root';
 import { storeToRefs } from 'pinia';
+import { reactive } from 'vue';
 
 const rootStore = useRootStore();
 const { tip } = storeToRefs(rootStore);
@@ -15,13 +16,56 @@ const props = defineProps({
     },
     text:{
         type: String,
+    },
+    data:{
+        type: Number,
+        required: true
     }
 })
 
+let minutes;
+let hours;
+
+function getUnitAbsoluteMin(){
+    minutes = props.data
+    hours = Math.round(props.data / 60)
+};
+
+getUnitAbsoluteMin();
+
+let isMinutes = true;
+
+const time = reactive({
+    present: hours,
+    tooBig: null
+});
+
+
+
+function formatting(){
+    if(isMinutes){
+        time.present = hours
+        isMinutes = false
+    }else{
+        time.present = minutes
+        isMinutes = true
+    }
+
+    let strPress = String(time.present)
+
+    if(strPress.length > 5){
+        time.tooBig = true
+    }else{
+        time.tooBig = false
+    }
+
+};
+
+formatting();
 
 </script>
 <template>
-    <div class="total">
+    <div class="total" @click="formatting()">
         <div class="title">
 
             {{ props.name }}
@@ -36,8 +80,26 @@ const props = defineProps({
             </VTooltip>
         </div>
 
-        <div class="total-time">13 h.</div>
+        <div class="total-time">
+            <VTooltip v-if="time.tooBig">
+                <p><span v-if="isMinutes">minutes</span><span v-else>hours</span></p>
+                <template #popper>
+                    <div class="tip">
+                        {{ time.present }}<span v-if="isMinutes">minutes</span><span v-else>hours</span>
+                    </div>
+                </template>
+            </VTooltip>
+            <VTooltip v-else>
+                <p>{{ time.present }}  <span v-if="isMinutes">m</span><span v-else>h</span></p>
+                <template #popper>
+                    <div class="tip">
+                        {{ time.present }}<span v-if="isMinutes">minutes</span><span v-else>hours</span>
+                    </div>
+                </template>
+            </VTooltip>
+        </div>
         <div class="click">click</div>
+
     </div>
 </template>
 <style lang="sass" scoped>
@@ -54,6 +116,12 @@ const props = defineProps({
 
     @include respond-to(sm)
         display: none
+    
+    .click-unit
+        display: flex
+
+
+            
 
 .title
     display: flex
@@ -73,4 +141,6 @@ const props = defineProps({
     font-size: 10px
     border: solid 1px
     border-radius: 12px
+
+
 </style>

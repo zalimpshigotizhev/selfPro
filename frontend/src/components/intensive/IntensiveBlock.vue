@@ -9,6 +9,22 @@ import Week from './IntensiveBlock/Week.vue';
 const rootStore = useRootStore()
 const { tip } = storeToRefs(rootStore)
 
+const props = defineProps({
+    data:{
+        type: Object,
+        require: true
+    }
+})
+
+function getName(){
+    let name_int = props.data.name
+
+    if(name_int.length > 7){
+        name_int = `${name_int.slice(0, 7)}...`;
+    }
+    return name_int
+}
+const name = getName()
 </script>
 <template>
     <div class="intensive-block">
@@ -16,7 +32,16 @@ const { tip } = storeToRefs(rootStore)
             <div class="img"></div>
             <div class="info">
                 <div class="name-btns">
-                    Redis 
+
+                    <VTooltip>
+                        <p class="name">{{ name }}</p>
+                        <template #popper>
+                            <div class="tip">
+                                {{ data.name }} 
+                            </div>
+                        </template>
+                    </VTooltip>
+
                     <div class="btns">
                         <Button
                         :icon="Plus"
@@ -33,6 +58,7 @@ const { tip } = storeToRefs(rootStore)
                     :name="'Total'" 
                     :gifUrl="'.\\src\\assets\\img\\steve.gif'"
                     :text="'Сколько вы занимались за все время.'"
+                    :data="data.total"
                     />
         
                     <Total 
@@ -40,6 +66,7 @@ const { tip } = storeToRefs(rootStore)
                     :name="'Month'"
                     :gifUrl="'.\\src\\assets\\img\\calendar.gif'"
                     :text="'Сколько вы занимались за месяц.'"
+                    :data="data.total_m"
                     />
                 </div>
                 
@@ -109,10 +136,13 @@ const { tip } = storeToRefs(rootStore)
     .name-btns
         @include flex-column
         justify-content: space-around
-        font-family: "JetBrains Medium"
-        font-size: 42px
-        width: 230px
-        height: 160px
+        
+
+        .name
+            margin: 0
+            font-family: "JetBrains Medium"
+            font-size: 35px
+            width: 230px
 
         @include respond-to(sm)
 

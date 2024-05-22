@@ -1,0 +1,53 @@
+{
+    "items": [
+        {
+            "id": 1,
+            "name": "Python",
+            "total": 360,
+            "total_m": 120,
+            "week": {
+                "mon": 3,
+                "tue": 4,
+                "wed": 2,
+                "thu": 5,
+                "fri": null,
+                "sat": 7,
+                "sun": null
+            },
+            "img_url": null
+        },
+
+        {
+            "id": 2,
+            "name": "Redis",
+            "total": 60,
+            "total_m": 12,
+            "week": {
+                "mon": 3,
+                "tue": null,
+                "wed": 2,
+                "thu": 1,
+                "fri": 5,
+                "sat": 7,
+                "sun": 3
+            },
+            "img_url": null
+        },
+        {
+            "id": 3,
+            "name": "Алгоритмы и струтуры данных",
+            "total": 13601231,
+            "total_m": 120,
+            "week": {
+                "mon": 6,
+                "tue": 4,
+                "wed": 8,
+                "thu": 4,
+                "fri": null,
+                "sat": 10,
+                "sun": null
+            },
+            "img_url": null
+        }
+    ]
+}
