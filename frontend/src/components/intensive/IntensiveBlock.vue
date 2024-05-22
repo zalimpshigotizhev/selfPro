@@ -3,9 +3,12 @@ import {Plus, Histogram } from '@element-plus/icons-vue'
 import { useRootStore } from '@/stores/root';
 import { storeToRefs } from 'pinia';
 
-
+import Button from './IntensiveBlock/Button.vue';
+import Total from './IntensiveBlock/Total.vue';
+import Week from './IntensiveBlock/Week.vue';
 const rootStore = useRootStore()
 const { tip } = storeToRefs(rootStore)
+
 </script>
 <template>
     <div class="intensive-block">
@@ -14,128 +17,46 @@ const { tip } = storeToRefs(rootStore)
             <div class="name-btns">
                 Redis 
                 <div class="btns">
-                    <el-button type="primary" :icon="Plus"></el-button>
-                    <el-button type="primary" :icon="Histogram"></el-button>
-                </div>
-
-            </div>
-            <div class="total">
-                <div class="title">
-                    Total
-                    <VTooltip v-if="tip">
-                        <div class="info-icon" ></div>
-                        <template #popper>
-                            <div class="tip">
-                                <img src="../../assets/img/steve.gif" class="giffile">
-                                Сколько вы занимались за все время. <br> <span>Кликните чтобы увидеть информацию в минутах.</span> 
-                            </div>
-                        </template>
-                    </VTooltip>
-                </div>
-
-                <div class="total-time">13 h.</div>
-                <div class="click">click</div>
-            </div>
-            <div class="total">
-                <div class="title">
-                    Month
-                    <VTooltip v-if="tip">
-                        <div class="info-icon" ></div>
-                        <template #popper>
-                            <div class="tip">
-                                <img src="../../assets/img/calendar.gif" class="giffile">
-                                Сколько времени вы занимались в этом месяце. <br> <span>Кликните чтобы увидеть информацию в минутах.</span> 
-                            </div>
-                        </template>
-                    </VTooltip>
-                </div>
-                <div class="total-time">13 h.</div>
-                <div class="click">click</div>
-            </div>
-            <div class="week">
-                <VTooltip v-if="tip">
-                    <div class="info-icon" ></div>
-                    <template #popper>
-                        <div class="tip">
-                            <img src="../../assets/img/cat.gif" class="giffile">
-                            Сколько времени вы занимались на этой неделе.
-                        </div>
-                    </template>
-                </VTooltip>
-                week
-                <div class="week-days">
-                    <div  class="day">
-                        <div class="date">
-                            12
-                        </div>
-                        <div class="indicator">
-            
-                        </div>
-                    </div>
-                    <div  class="day">
-                        <div class="date">
-                            12
-                        </div>
-                        <div class="indicator">
-            
-                        </div>
-                    </div>
-                    <div  class="day">
-                        <div class="date">
-                            12
-                        </div>
-                        <div class="indicator">
-            
-                        </div>
-                    </div>
-                    <div  class="day">
-                        <div class="date">
-                            12
-                        </div>
-                        <div class="indicator">
-            
-                        </div>
-                    </div>
-                    <div  class="day">
-                        <div class="date">
-                            12
-                        </div>
-                        <div class="indicator">
-            
-                        </div>
-                    </div>
-                    <div  class="day">
-                        <div class="date">
-                            12
-                        </div>
-                        <div class="indicator">
-            
-                        </div>
-                    </div>
-                    <div  class="day">
-                        <div class="date">
-                            12
-                        </div>
-                        <div class="indicator">
-            
-                        </div>
-                    </div>
+                    <Button
+                    :icon="Plus"
+                    
+                    />
+                    <Button
+                    :icon="Histogram"
+                    />
                 </div>
             </div>
+            <div class="totals">
+                <Total 
+                :name="'Total'" 
+                :gifUrl="'.\\src\\assets\\img\\steve.gif'"
+                :text="'Сколько вы занимались за все время.'"
+                />
+    
+                <Total 
+                :name="'Month'"
+                :gifUrl="'.\\src\\assets\\img\\calendar.gif'"
+                :text="'Сколько вы занимались за месяц.'"
+                />
+            </div>
+            
+            <Week
+            :gifUrl="'.\\src\\assets\\img\\cat.gif'"
+            />
         </div>
     </div>
 </template>
 <style lang="sass" scoped>
 @import '../../assets/style/main'
-@import '../../assets/style/indicator-day'
 
 .intensive-block
     display: flex
     align-items: center
     background-color: white
-    width: 1250px
+    max-width: 1250px
     height: 295px
     border-radius: 10px
+    
 
     &:not(:last-child)
         margin-bottom: 30px
@@ -145,21 +66,28 @@ const { tip } = storeToRefs(rootStore)
     display: flex
     align-items: center
 
+    .totals
+        display: flex
+        
 
 
     .img
-        width: 360px
-        height: 160px
+        max-width: 360px
+        min-width: 260px
+        max-height: 160px
+        min-height: 116px
         margin: 50px
         border-radius: 8px
         background: url("../../assets/img/redis.png")
         background-size: cover
         background-position: center center
         background-repeat: no-repeat
+
+        
     
     .name-btns
-        display: flex
-        flex-direction: column
+        @include flex-column
+        
         justify-content: space-around
         font-family: "JetBrains Medium"
         font-size: 42px
@@ -189,46 +117,10 @@ const { tip } = storeToRefs(rootStore)
                         background: rgb(110,59,32)
                         background: linear-gradient(142deg, rgba(110,59,32,1) 0%, rgba(132,103,85,1) 60%)
     
-    .total
-        cursor: pointer
-        margin: 0 5px
-        width: 210px
-        height: 116px
-        font-family: "JetBrains Bold", sans-serif
-        font-size: 42px
-
-        .title
-            display: flex
-        .total-time
-            width: 210px
-            height: 44px
-            font-family: "JetBrains ExtraLight", sans-serif
-        
-        .click
-            color: #9f9f9f
-            display: flex
-            justify-content: center
-            width: 56px
-            height: 18px
-            margin: 10px 0
-            font-family: "JetBrains ExtraLight", sans-serif
-            font-size: 10px
-            border: solid 1px
-            border-radius: 12px
 
 
-.week
-    display: flex
-    flex-direction: column
-    align-items: center
-    font-family: "JetBrains ExtraLight", sans-serif
-    font-size: 10px 
-    width: 45px
-    height: 160px
 
-    .week-days
-        display: flex
-        flex-wrap: wrap
+
 
                     
 

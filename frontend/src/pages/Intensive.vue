@@ -16,8 +16,6 @@ import IntensiveBlock from 'components/intensive/IntensiveBlock.vue'
             
         </div>
         <IntensiveBlock/>
-        <IntensiveBlock/>
-        <IntensiveBlock/>
     </div>
 </template>
 <style lang="sass" scoped>
@@ -26,6 +24,7 @@ import IntensiveBlock from 'components/intensive/IntensiveBlock.vue'
 .intensive
     display: flex
     flex-direction: column
+    padding-bottom: 100px
 
 
     .title
