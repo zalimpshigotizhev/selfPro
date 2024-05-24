@@ -2,39 +2,42 @@
     "items": [
         {
             "id": 1,
+            "color":"#00a550",
             "name": "Python",
             "total": 360,
             "total_m": 120,
             "week": {
-                "mon": 3,
-                "tue": 4,
-                "wed": 2,
-                "thu": 5,
-                "fri": null,
-                "sat": 7,
-                "sun": null
+                "mon": 1,
+                "tue": 2,
+                "wed": 3,
+                "thu": 4,
+                "fri": 5,
+                "sat": 6,
+                "sun": 7
             },
             "img_url": null
         },
 
         {
             "id": 2,
+            "color":"#FF0000",
             "name": "Redis",
             "total": 60,
             "total_m": 12,
             "week": {
-                "mon": 3,
-                "tue": null,
-                "wed": 2,
-                "thu": 1,
-                "fri": 5,
-                "sat": 7,
-                "sun": 3
+                "mon": 7,
+                "tue": 6,
+                "wed": 5,
+                "thu": 4,
+                "fri": 3,
+                "sat": 2,
+                "sun": 1
             },
             "img_url": null
         },
         {
             "id": 3,
+            "color":"#000000",
             "name": "Алгоритмы и струтуры данных",
             "total": 13601231,
             "total_m": 120,

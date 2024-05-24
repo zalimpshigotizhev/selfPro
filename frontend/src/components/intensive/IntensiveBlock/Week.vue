@@ -9,8 +9,43 @@ const props = defineProps({
     gifUrl:{
         type: String,
         required: true
+    },
+    week: {
+        type: Object,
+        required: true
     }
 })
+
+
+
+function transLevelToHex(level){
+    if(level == 1 || level == null){return "#E1E1E1"}
+    if(level == 2){return "#C2E8C5"}
+    if(level == 3){return "#CAFFCE"}
+    if(level == 4){return "#B7FFBC"}
+    if(level == 5){return "#9AFFA1"}
+    if(level == 6){return "#78FF82"}
+    if(level == 7){return "#54FF61"}
+    if(level == 8){return "#5DE367"}
+    if(level == 9){return "#5FCF67"}
+    if(level == 10){return "#45994B"}
+}
+
+function normalizeWeek(week){
+    // Изменяет значение дней недели
+    // В Hex-цвета для индикаторов
+    const keys = Object.keys(week)
+    const len = keys.length
+    const result = {}
+    for (let i=0; i < len; i++){
+        let key = keys[i]
+        result[key] = transLevelToHex(week[key])
+    }
+    return result
+}
+let week = normalizeWeek(props.week);
+
+console.log(week);
 </script>
 
 <template>
@@ -26,59 +61,11 @@ const props = defineProps({
         </VTooltip>
         week
         <div class="week-days">
-            <div  class="day">
+            <div  class="day" v-for="(value, key) in week" :key='key'>
                 <div class="date">
-                    mon
+                    {{ key }}
                 </div>
-                <div class="indicator">
-    
-                </div>
-            </div>
-            <div  class="day">
-                <div class="date">
-                    tue
-                </div>
-                <div class="indicator">
-    
-                </div>
-            </div>
-            <div  class="day">
-                <div class="date">
-                    wed
-                </div>
-                <div class="indicator">
-    
-                </div>
-            </div>
-            <div  class="day">
-                <div class="date">
-                    thu
-                </div>
-                <div class="indicator">
-    
-                </div>
-            </div>
-            <div  class="day">
-                <div class="date">
-                    fri
-                </div>
-                <div class="indicator">
-    
-                </div>
-            </div>
-            <div  class="day">
-                <div class="date">
-                    sat
-                </div>
-                <div class="indicator">
-    
-                </div>
-            </div>
-            <div  class="day">
-                <div class="date">
-                    sun
-                </div>
-                <div class="indicator">
+                <div class="indicator" :style="`background-color:${value};`">
     
                 </div>
             </div>
