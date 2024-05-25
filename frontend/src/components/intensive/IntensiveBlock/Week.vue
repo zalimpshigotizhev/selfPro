@@ -45,7 +45,6 @@ function normalizeWeek(week){
 }
 let week = normalizeWeek(props.week);
 
-console.log(week);
 </script>
 
 <template>

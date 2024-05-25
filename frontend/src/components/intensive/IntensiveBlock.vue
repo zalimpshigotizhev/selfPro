@@ -2,10 +2,11 @@
 import {Plus, Histogram } from '@element-plus/icons-vue'
 import { useRootStore } from '@/stores/root';
 import { storeToRefs } from 'pinia';
-
+import normalizeColor from '../../scripts/main.js'
 import Button from './IntensiveBlock/Button.vue';
 import Total from './IntensiveBlock/Total.vue';
 import Week from './IntensiveBlock/Week.vue';
+
 const rootStore = useRootStore()
 const { tip } = storeToRefs(rootStore)
 
@@ -26,13 +27,7 @@ function getName(){
 }
 const name = getName()
 
-function normalizeColor(hex){
-    hex = hex.replace('#', '');
-    var r = parseInt(hex.substring(0, 2), 16);
-    var g = parseInt(hex.substring(2, 4), 16);
-    var b = parseInt(hex.substring(4, 6), 16);
-    return `rgba(${r},${g},${b}, 0.1)`
-}
+
 
 const rgbaColor = normalizeColor(props.data.color)
 
@@ -64,14 +59,14 @@ const rgbaColor = normalizeColor(props.data.color)
                     </div>
                 </div>
                 <div class="totals">
+                    
                     <Total 
                     class="tot"
                     :name="'Total'" 
                     :gifUrl="'.\\src\\assets\\img\\steve.gif'"
                     :text="'Сколько вы занимались за все время.'"
-                    :data="data.total"
-                    />
-        
+                    :data="data.total"/>
+
                     <Total 
                     class="tot"
                     :name="'Month'"

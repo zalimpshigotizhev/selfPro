@@ -1,7 +1,19 @@
 <script setup>
-import Header from 'components/Header.vue'
-import IntensiveBlock from 'components/intensive/IntensiveBlock.vue'
-import Data from './dataset/intensive_list.json'
+import Header from 'components/Header.vue';
+import IntensiveBlock from 'components/intensive/IntensiveBlock.vue';
+import Data from './dataset/intensive_list.json';
+import { useRoute, useRouter } from 'vue-router';
+import { ROUTES_PATHS } from '../constans/router';
+
+
+
+const router = useRouter()
+
+
+
+function moveHistory(){
+    router.push(ROUTES_PATHS.HISTORY)
+}
 
 // read file
 
@@ -16,9 +28,8 @@ import Data from './dataset/intensive_list.json'
             <div class="title">Intensive</div>
             <div class="btns">
                 <el-button type="success" round class="first">add</el-button>
-                <el-button type="danger" round class="second">history</el-button>
+                <el-button type="danger" round class="second" @click="moveHistory()">history</el-button>
             </div>
-            
         </div>
         <IntensiveBlock :data="intensive" v-for="intensive in Data.items" />
 
