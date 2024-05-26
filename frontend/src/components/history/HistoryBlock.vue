@@ -1,5 +1,5 @@
 <script setup>
-import normalizeColor from '../../scripts/main.js'
+import { normalizeColor, getText } from '../../scripts/main.js'
 
 const props = defineProps({
     history:{
@@ -18,23 +18,37 @@ function normalizeDate(timestamp){
 }
 
 function normalizeTime(timestamp){
-    const time = new Date(timestamp);
-    const hours = time.getHours();
-    const minutes = time.getMinutes();
+    const date = new Date(timestamp);
+    const hours = date.getHours();
+    const minutes = date.getMinutes();
     return `${hours}:${minutes}`;
 }
 
-const color = normalizeColor(props.history.color)
-const date = normalizeDate(props.history.datetime)
-const time = normalizeTime(props.history.datetime)
-console.log(time);
+
+const normalizeData = {
+    "name": getText(props.history.name, 9),
+    "color": normalizeColor(props.history.color),
+    "time_intensive": props.history.time_intensive,
+    "date": normalizeDate(props.history.datetime),
+    "time": normalizeTime(props.history.datetime),
+
+}
+
+console.log(normalizeData.time_intensive);
 </script>
 <template>
-    <div class="block-history" :style="`background-color: ${color};`">
+    <div class="block-history" :style="`background-color: ${normalizeData.color};`">
         <div class="decoration">
             <div class="wrapper">
                 <div class="name">
-                    <p>{{ history.name }}</p>
+                    <VTooltip>
+                        <p >{{ normalizeData.name }}</p>
+                        <template #popper>
+                            <div class="tip">
+                                {{ history.name }} 
+                            </div>
+                        </template>
+                    </VTooltip>
                 </div>
                 <div class="information">
                     <div class="left">
@@ -42,16 +56,16 @@ console.log(time);
                             added
                         </div>
                         <div class="time-intensive">
-                            <p>{{ history.time_intensive }} min.</p>
+                            <p>{{ normalizeData.time_intensive }} min.</p>
                         </div>
                     </div>
                     
                     <div class="datetime">
                         <div class="date">
-                            <p>{{ date }}</p>
+                            <p>{{ normalizeData.date }}</p>
                         </div>
                         <div class="time">
-                            <p>{{ time }}</p>
+                            <p>{{ normalizeData.time }}</p>
                         </div>
                     </div>
     
@@ -79,6 +93,11 @@ console.log(time);
     border: solid #E1E1E1
     margin-bottom: 30px
 
+    @include respond-to(sm)
+        font-size: 15px
+        height: 132px
+
+
     .decoration
         display: flex
         width: 100%
@@ -98,6 +117,19 @@ console.log(time);
                 width: 80%
                 padding: 17px 0
 
+                @include respond-to(lg)
+                    font-size: 35px
+                    width: 70%
+
+                @include respond-to(md)
+                    font-size: 30px
+                    width: 60%
+
+                @include respond-to(xs)
+                    font-size: 25px
+                    width: 60%
+    
+
             
             .information
                 display: flex
@@ -106,6 +138,8 @@ console.log(time);
                 font-family: "JetBrains Light",sans-serif
                 font-size: 25px
 
+                @include respond-to(sm)
+                    font-size: 15px
 
                 .left
                     display: flex
@@ -124,12 +158,21 @@ console.log(time);
                         border-radius: 37px
                         margin-right: 30px 
 
+                        @include respond-to(sm)
+                            width: 70px
+                            height: 25px
+                            font-size: 13px
+
+
                 .datetime
                     display: flex
                     font-size: 16px
                     color: #A5A5A5
 
-
+                    @include respond-to(sm)
+                        flex-direction: column
+                        align-items: center
+                        font-size: 12px
 
                     .date
                         padding-right: 15px 
@@ -154,10 +197,19 @@ console.log(time);
                 background-position: center center
                 background-repeat: no-repeat
                 background-color: #591C1C
+                
+                @include respond-to(sm)
+                    background-size: 50%
 
                 &:hover,
                 &:active
                     background-color: #773A3A
+                
+                @include respond-to(sm)
+                    width: 25.5px
+                    height: 25.5px
+
+    
                 
 
 

@@ -1,5 +1,5 @@
 
-function normalizeColor(hex){
+export function normalizeColor(hex){
     if (typeof hex !== 'string') {
         throw new TypeError('Expected a string');
     }
@@ -17,4 +17,16 @@ function normalizeColor(hex){
     return `rgba(${r},${g},${b}, 0.1)`
 }
 
-export default normalizeColor
+export function getText(text, limit){
+    let name_int = text
+
+    if(name_int.length > 7){
+        name_int = `${name_int.slice(0, limit)}...`;
+    }
+    return name_int
+}
+
+export default {
+    normalizeColor,
+    getText
+};

@@ -31,7 +31,7 @@ function goBack(){
             <div class="filters">
                 <el-input
                 v-model="search"
-                style="width: 240px"
+                style=""
                 class="search-input mr10px"
                 placeholder="Type something"
                 :prefix-icon="Search"
@@ -123,10 +123,15 @@ function goBack(){
 
 
     .search-input
+        width: 240px
         height: 32px
-    
+
+
     .mr10px
         margin-right: 10px
+
+
+    
         
 
 </style>

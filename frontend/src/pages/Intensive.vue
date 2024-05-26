@@ -14,6 +14,9 @@ const router = useRouter()
 function moveHistory(){
     router.push(ROUTES_PATHS.HISTORY)
 }
+function moveIntensiveAdd(){
+    router.push(ROUTES_PATHS.INTENSIVE_ADD)
+}
 
 // read file
 
@@ -27,7 +30,7 @@ function moveHistory(){
         <div class="block">
             <div class="title">Intensive</div>
             <div class="btns">
-                <el-button type="success" round class="first">add</el-button>
+                <el-button type="success" round class="first" @click="moveIntensiveAdd()">add</el-button>
                 <el-button type="danger" round class="second" @click="moveHistory()">history</el-button>
             </div>
         </div>

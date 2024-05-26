@@ -2,7 +2,7 @@
 import {Plus, Histogram } from '@element-plus/icons-vue'
 import { useRootStore } from '@/stores/root';
 import { storeToRefs } from 'pinia';
-import normalizeColor from '../../scripts/main.js'
+import {normalizeColor, getText} from '../../scripts/main.js'
 import Button from './IntensiveBlock/Button.vue';
 import Total from './IntensiveBlock/Total.vue';
 import Week from './IntensiveBlock/Week.vue';
@@ -17,15 +17,8 @@ const props = defineProps({
     }
 })
 
-function getName(){
-    let name_int = props.data.name
 
-    if(name_int.length > 7){
-        name_int = `${name_int.slice(0, 7)}...`;
-    }
-    return name_int
-}
-const name = getName()
+const name = getText(props.data.name, 7)
 
 
 
