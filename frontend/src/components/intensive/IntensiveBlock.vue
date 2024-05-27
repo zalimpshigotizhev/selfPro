@@ -2,11 +2,16 @@
 import {Plus, Histogram } from '@element-plus/icons-vue'
 import { useRootStore } from '@/stores/root';
 import { storeToRefs } from 'pinia';
+import { useRoute, useRouter } from 'vue-router';
+
 import {normalizeColor, getText} from '../../scripts/main.js'
+import { ROUTES_PATHS } from '../../constans/router';
+
 import Button from './IntensiveBlock/Button.vue';
 import Total from './IntensiveBlock/Total.vue';
 import Week from './IntensiveBlock/Week.vue';
 
+const router = useRouter()
 const rootStore = useRootStore()
 const { tip } = storeToRefs(rootStore)
 
@@ -17,6 +22,10 @@ const props = defineProps({
     }
 })
 
+
+function getIntensive(id){
+    router.push({name: ROUTES_PATHS.INTENSIVE_DETAIL, params:{rid: id}})
+}
 
 const name = getText(props.data.name, 7)
 
@@ -47,6 +56,7 @@ const rgbaColor = normalizeColor(props.data.color)
                         
                         />
                         <Button
+                        @click="getIntensive(data.id)"
                         :icon="Histogram"
                         />
                     </div>
@@ -88,6 +98,8 @@ const rgbaColor = normalizeColor(props.data.color)
     max-height: 490px
     min-height: 260px
     border-radius: 10px
+    border: 1px solid #cccccc
+
 
     &:not(:last-child)
         margin-bottom: 30px

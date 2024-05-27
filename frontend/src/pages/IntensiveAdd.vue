@@ -1,4 +1,5 @@
 <script setup>
+
 import Header from 'components/Header.vue'
 import { useRouter } from 'vue-router';
 import { ref } from 'vue'
@@ -162,10 +163,16 @@ function goBack(){
 
         .left
             width: 50%
+
+
             @include respond-to(lg)
                 width: 70%
                 padding: 0
                 padding-top: 30px
+
+            @include respond-to(xs)
+                width: 100%
+                
 
             .avatar-uploader
                 display: flex
@@ -216,7 +223,8 @@ function goBack(){
                 width: 100%
 
                 @include respond-to(lg)
-                    width: 50%
+                    max-width: 370px
+                    width: 100%
                     height: 40px
 
 
@@ -243,6 +251,9 @@ function goBack(){
                 .btn
                     font-family: "JetBrains Regular", sans-serif
                     font-size: 20px
-                    background-color: #120a8f
+                    background-color: #37ad5f
                     padding: 20px 30px
-</style>
+
+                    &:hover
+                        background-color: #50c878
+</style>    

@@ -10,31 +10,16 @@ import { ROUTES_PATHS } from '../constans/router';
 const router = useRouter()
 
 
-
-function moveHistory(){
-    router.push(ROUTES_PATHS.HISTORY)
-}
-function moveIntensiveAdd(){
-    router.push(ROUTES_PATHS.INTENSIVE_ADD)
-}
-
-// read file
-
-
-
-
 </script>
 <template>
     <Header/>
     <div class="intensive">
         <div class="block">
-            <div class="title">Intensive</div>
+            <div class="title">Redis</div>
             <div class="btns">
-                <el-button type="success" round class="first" @click="moveIntensiveAdd()">add</el-button>
-                <el-button type="danger" round class="second" @click="moveHistory()">history</el-button>
+                <el-button type="danger" round class="second" >back</el-button>
             </div>
         </div>
-        <IntensiveBlock :data="intensive" v-for="intensive in Data.items" />
 
     </div>
 </template>
@@ -59,7 +44,6 @@ function moveIntensiveAdd(){
         display: flex
         align-items: center
         margin-bottom: 40px
-
         @media (min-width: $min_mobile) and (max-width: $max_pad)
             margin-bottom: 20px
             flex-direction: column
@@ -78,13 +62,7 @@ function moveIntensiveAdd(){
                     margin: 10px
                     margin-right: 30px
                     margin-left: 0
-            
-            .first
-                background-color: #247531
 
-                &:hover,
-                &:active
-                    background-color: #449050
             
             .second
                 background-color: #C18C26

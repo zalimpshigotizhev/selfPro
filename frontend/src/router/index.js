@@ -2,6 +2,7 @@ import { createRouter, createWebHistory } from 'vue-router'
 import { ROUTES_PATHS } from '../constans/router'
 import Intensive from '../pages/Intensive.vue'
 import IntensiveAdd from '../pages/IntensiveAdd.vue'
+import IntensiveDetail from '../pages/IntensiveDetail.vue'
 import History from '../pages/History.vue'
 import Profile from '../pages/Profile.vue'
 import Auth from '../pages/Auth.vue'
@@ -28,6 +29,11 @@ const router = createRouter({
       path: ROUTES_PATHS.INTENSIVE_ADD,
       name: ROUTES_PATHS.INTENSIVE_ADD,
       component: IntensiveAdd,
+    },
+    {
+      path: ROUTES_PATHS.INTENSIVE_DETAIL,
+      name: ROUTES_PATHS.INTENSIVE_DETAIL,
+      component: IntensiveDetail,
     },
     {
       path: ROUTES_PATHS.HISTORY,

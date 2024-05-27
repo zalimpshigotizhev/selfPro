@@ -8,6 +8,9 @@ const props = defineProps({
     }
 })
 
+function getIntensive(){
+    
+}
 
 function normalizeDate(timestamp){
     const date = new Date(timestamp);
@@ -193,7 +196,7 @@ console.log(normalizeData.time_intensive);
                 height: 51px
                 border-radius: 50px 
                 background: url("../../assets/img/delete.png")
-                background-size: 65%
+                background-size: 50%
                 background-position: center center
                 background-repeat: no-repeat
                 background-color: #591C1C

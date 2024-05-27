@@ -1,0 +1,151 @@
+[33mcommit 06f6895ff6b85fc2fda46fab99525929d21bb358[m[33m ([m[1;36mHEAD -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m)[m
+Author: zalim <zalimpshigotizhev@yandex.ru>
+Date:   Sun May 26 23:23:26 2024 +0300
+
+    Добавил <IntensiveAdd/>
+
+[33mcommit 98e965a17b1994a2b15ad9f200f2c5e99d427911[m
+Author: zalim <zalimpshigotizhev@yandex.ru>
+Date:   Sun May 26 00:06:17 2024 +0300
+
+    Добавил <History/>
+
+[33mcommit 2643621c0397cf3621f903978bcee35d83cb5006[m
+Author: zalim <zalimpshigotizhev@yandex.ru>
+Date:   Fri May 24 13:54:02 2024 +0300
+
+    Закончил подстраивание <Week/>
+
+[33mcommit 76c1c3b405dd55478e6f967df08144da1f40530d[m
+Author: zalim <zalimpshigotizhev@yandex.ru>
+Date:   Wed May 22 23:28:46 2024 +0300
+
+    Добавил фальшивые данные для тестирование и нормализации
+
+[33mcommit 897b738790c147e1110109bf5ddd2b907b966fb4[m
+Author: zalim <zalimpshigotizhev@yandex.ru>
+Date:   Wed May 22 19:55:40 2024 +0300
+
+    Закончил адаптацию под моб устройства
+
+[33mcommit 7f95d6a5fe71719d13772681ef04bb3464626161[m
+Merge: 9216dc8 8ee326e
+Author: zalim <zalimpshigotizhev@yandex.ru>
+Date:   Wed May 22 16:54:47 2024 +0300
+
+    Merge branch 'main' of github.com:zalimpshigotizhev/selfPro
+
+[33mcommit 9216dc87b402fa01ad82321779eb36f4a2f684a2[m
+Author: zalim <zalimpshigotizhev@yandex.ru>
+Date:   Wed May 22 16:54:01 2024 +0300
+
+    Поработал над cleancode
+
+[33mcommit 8ee326e08cb9a62d20502e915687144cc855eeb6[m
+Author: Zalim Pshigotizhev <121479912+zalimpshigotizhev@users.noreply.github.com>
+Date:   Wed May 22 00:42:29 2024 +0300
+
+    Update README.md
+
+[33mcommit 2cae2dd3c27d542f1e8332a4be7bad58e2b109db[m
+Author: Zalim Pshigotizhev <121479912+zalimpshigotizhev@users.noreply.github.com>
+Date:   Wed May 22 00:38:43 2024 +0300
+
+    Update README.md
+
+[33mcommit 3ee64aa15105336a5ac885224f1f37137bad6891[m
+Author: Zalim Pshigotizhev <121479912+zalimpshigotizhev@users.noreply.github.com>
+Date:   Wed May 22 00:35:05 2024 +0300
+
+    Update README.md
+
+[33mcommit 3d069891dc0b52401f6c43e4d9a1278aa3ee3a57[m
+Author: Zalim Pshigotizhev <121479912+zalimpshigotizhev@users.noreply.github.com>
+Date:   Wed May 22 00:20:11 2024 +0300
+
+    Update README.md
+
+[33mcommit fef55eba6ab66fbc9a7154c7c3e9e99b4934692b[m
+Author: Zalim Pshigotizhev <121479912+zalimpshigotizhev@users.noreply.github.com>
+Date:   Wed May 22 00:08:48 2024 +0300
+
+    Update README.md
+
+[33mcommit a734d8aedf155a6afecc542ce63b8a1ebf597373[m
+Author: zalim <zalimpshigotizhev@yandex.ru>
+Date:   Tue May 21 23:54:23 2024 +0300
+
+    Добавил оформления для github
+
+[33mcommit f005255b7120f13d5038144f84198cbb694637b3[m
+Author: zalim <zalimpshigotizhev@yandex.ru>
+Date:   Tue May 21 22:26:35 2024 +0300
+
+    Подключил Floating Vue и ни о чем не жалею. Это крутой пакет!
+
+[33mcommit f4a713ee5244d68c7ab4bcaa8017bff97d6d9d7a[m
+Author: zalim <zalimpshigotizhev@yandex.ru>
+Date:   Tue May 21 20:22:35 2024 +0300
+
+    Коммит чтобы ничего не сломалось, перед установкой пакета
+
+[33mcommit 69530914ffa7d09fa63d553b975ae78c26ee7923[m
+Author: zalim <zalimpshigotizhev@yandex.ru>
+Date:   Tue May 21 19:22:41 2024 +0300
+
+    Добавил <IntensiveBlock/>
+
+[33mcommit cd29070633d787e31cc01c8851190d183be9f1b4[m
+Author: zalim <zalimpshigotizhev@yandex.ru>
+Date:   Mon May 20 23:28:28 2024 +0300
+
+    Добавил фичу <GraphPie/>, начал <Intensive/>
+
+[33mcommit d4668680f99fe2ea3c017ab2bde0b1908c1a1fec[m
+Author: zalim <zalimpshigotizhev@yandex.ru>
+Date:   Mon May 20 17:42:43 2024 +0300
+
+    Добавил фичу <FourMonths/>
+
+[33mcommit 63677f8fc88b1c716ba36a79737e4dce12484169[m
+Author: zalim <zalimpshigotizhev@yandex.ru>
+Date:   Sun May 19 22:52:51 2024 +0300
+
+    Начал <Profile/>
+
+[33mcommit 8813bc2cacb940292145720af9ea5c3a614355b8[m
+Author: zalim <zalimpshigotizhev@yandex.ru>
+Date:   Sun May 19 17:48:34 2024 +0300
+
+    Доделал для моб/планшетов  <Header>
+
+[33mcommit 6a7255f9cd5344dc047cecbeb154ebf5810f8341[m
+Author: zalim <zalimpshigotizhev@yandex.ru>
+Date:   Sat May 18 23:42:22 2024 +0300
+
+    Начал <Header/>
+
+[33mcommit 2a70f224f4c5f8849c36b1cc7e1fdc0748c6ebeb[m
+Author: zalim <zalimpshigotizhev@yandex.ru>
+Date:   Sat May 18 21:57:50 2024 +0300
+
+    Доделал /auth
+
+[33mcommit 3f57abb75f2caec083daa3f04959db104947f080[m
+Merge: 46c6a70 db72b65
+Author: zalim <zalimpshigotizhev@yandex.ru>
+Date:   Sat May 18 00:09:12 2024 +0300
+
+    Merge remote-tracking branch 'origin/main'
+
+[33mcommit 46c6a7052f303da8969bf72fc147e2c1f3addd29[m
+Author: zalim <zalimpshigotizhev@yandex.ru>
+Date:   Fri May 17 23:58:57 2024 +0300
+
+    Скелет. Начало /auth
+
+[33mcommit db72b65e26637ced9548f05a321aaae3f83583f6[m
+Author: Zalim Pshigotizhev <121479912+zalimpshigotizhev@users.noreply.github.com>
+Date:   Fri May 17 20:27:51 2024 +0300
+
+    Create README.md

@@ -14,9 +14,7 @@ console.log(props.month);
         <div class="name">{{props.month.name}}</div>
         <div  class="string">
             <div v-for="day in props.month.days"  :key="day" class="day">
-                <div class="date">
-                    {{ day.date }}
-                </div>
+                <div class="date">{{ day.date }}</div>
                 <div class="indicator">
     
                 </div>
