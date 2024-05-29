@@ -1,0 +1,4 @@
+.vscode/
+*.pyc
+.env
+core/selfpro/settings/local.py

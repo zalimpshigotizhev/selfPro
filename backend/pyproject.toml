@@ -1,0 +1,20 @@
+[tool.poetry]
+name = "backend"
+version = "0.1.0"
+description = ""
+authors = ["zalim <zalimpshigotizhev@yandex.ru>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = ">=3.10, <3.11"
+django = "^5.0.6"
+djangorestframework = "^3.15.1"
+markdown = "^3.6"
+django-filter = "^24.2"
+djoser = "^2.2.2"
+psycopg2 = "^2.9.9"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
