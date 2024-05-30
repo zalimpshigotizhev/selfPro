@@ -13,6 +13,7 @@ markdown = "^3.6"
 django-filter = "^24.2"
 djoser = "^2.2.2"
 psycopg2 = "^2.9.9"
+django-environ = "^0.11.2"
 
 
 [build-system]
