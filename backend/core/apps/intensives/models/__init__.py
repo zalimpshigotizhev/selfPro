@@ -1,1 +1,1 @@
-from .intensives import * # noqa
+from .intensives import *  # noqa

@@ -1,5 +1,7 @@
 from django.contrib import admin
+
 from core.apps.intensives.models.intensives import Intensive
+
 
 @admin.register(Intensive)
 class IntensiveAdmin(admin.ModelAdmin):

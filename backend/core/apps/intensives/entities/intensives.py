@@ -4,8 +4,8 @@ from dataclasses import dataclass
 
 @dataclass
 class Intensive:
-    id: int
+    id: int # noqa
     title: str
     color: str
     created_at: datetime
-    updated_at: datetime 
+    updated_at: datetime

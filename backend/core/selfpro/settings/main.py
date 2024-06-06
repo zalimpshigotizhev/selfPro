@@ -1,5 +1,7 @@
 from pathlib import Path
+
 import environ
+
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent.parent.parent
@@ -30,7 +32,6 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'rest_framework',
     'djoser',
-    
     # models
     'core.apps.intensives.apps.IntensivesConfig',
 ]
@@ -77,7 +78,7 @@ DATABASES = {
         'PASSWORD': env('POSTGRES_PASSWORD', default='552216742'),
         'HOST': env('POSTGRES_HOST', default='localhost'),
         'PORT': env('POSTGRES_PORT', default='5432'),
-    }
+    },
 }
 
 # Password validation

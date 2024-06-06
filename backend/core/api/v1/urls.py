@@ -1,4 +1,5 @@
 from ninja import Router
+
 from core.api.v1.intensives.handlers import router as intensives_router
 
 
