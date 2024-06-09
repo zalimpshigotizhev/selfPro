@@ -34,6 +34,7 @@ INSTALLED_APPS = [
     'djoser',
     # models
     'core.apps.intensives.apps.IntensivesConfig',
+    'core.apps.users.apps.UsersConfig',
 ]
 
 MIDDLEWARE = [
