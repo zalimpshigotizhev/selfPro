@@ -1,8 +1,9 @@
 .vscode/
+.pytest_cache/
+
 *.pyc
 .env
 core/selfpro/settings/local.py
-
 static/*
 
 !static/.gitkeep

@@ -8,6 +8,7 @@ from django.db.models import Q
 
 from core.api.filters import PaginationIn
 from core.api.v1.intensives.filters import IntensiveFilters
+from core.api.v1.intensives.schemas import IntensiveCreate
 from core.apps.intensives.models.intensives import Intensive as IntensiveModel
 from core.apps.intensives.entities.intensives import Intensive
 
@@ -51,3 +52,9 @@ class ORMIntensiveService(BaseIntensiveService):
     def get_intensive_count(self, filters: IntensiveFilters) -> Iterable[Intensive]:
         query = self._build_intensive_query(filters)
         return IntensiveModel.objects.filter(query).count()
+    
+    def post_intensive_create(self, new_intensive: IntensiveCreate) -> None:
+        IntensiveModel.objects.create(
+            title=new_intensive.title,
+            color=new_intensive.color,
+        )

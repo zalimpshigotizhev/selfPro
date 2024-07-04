@@ -64,6 +64,10 @@ superuser:
 collectstatic:
 	${EXEC} ${APP_CONTAINER} ${MANAGEPY} collectstatic
 
+.PHONY: shell
+shell:
+	${EXEC} ${APP_CONTAINER} ${MANAGEPY} shell
+
 .PHONY: runtest
 runtest:
 	${EXEC} ${APP_CONTAINER} pytest

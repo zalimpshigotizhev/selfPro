@@ -1,4 +1,7 @@
-from ninja import Router
+from ninja import (
+    Query,
+    Router,
+)
 from django.http import HttpRequest
 from ninja.errors import HttpError
 
@@ -8,6 +11,7 @@ from core.api.v1.users.schemas import (
     AuthOutSchema,
     TokenInSchema,
     TokenOutSchema,
+    RegisterInSchema,
 )
 from core.apps.common.exceptions import ServiceException
 from core.apps.users.services.auth import AuthService
@@ -54,5 +58,21 @@ def get_token_handler(request: HttpRequest, schema: TokenInSchema) -> ApiRespons
     return ApiResponse(
         data=TokenOutSchema(
             token=token,
+        ),
+    )
+
+
+@router.post('/register', response=ApiResponse[AuthOutSchema], operation_id='register')
+def register_handler(request: HttpRequest, schema: Query[RegisterInSchema]) -> ApiResponse[AuthOutSchema]:
+    service = AuthService(
+        user_service=ORMUserService(),
+        codes_service=DjangoCacheCodeService(),
+        sender_service=DummySenderService(),
+    )
+
+    service.user_create(schema.dict(exclude_unset=True))
+    return ApiResponse(
+        data=AuthOutSchema(
+            message='Регистрация прошла успешно',
         ),
     )

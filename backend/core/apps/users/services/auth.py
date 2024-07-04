@@ -4,9 +4,14 @@ from abc import (
 )
 from dataclasses import dataclass
 
+from django.contrib.auth import get_user_model
+
 from core.apps.users.services.codes import BaseCodeService
 from core.apps.users.services.users import BaseUserService
 from core.apps.users.services.senders import BaseSenderService
+
+
+User = get_user_model()
 
 
 @dataclass
@@ -25,6 +30,14 @@ class BaseAuthService(ABC):
 
 
 class AuthService(BaseAuthService):
+    def user_create(self, data: dict):
+        User.objects.create(
+            first_name=data['first_name'],
+            username=data['username'],
+            phone=data['phone'],
+            password=data['password'],
+        )
+    
     def authorize(self, phone: str):
         user = self.user_service.get_or_create(phone=phone)
         code = self.codes_service.generate_code(user=user)

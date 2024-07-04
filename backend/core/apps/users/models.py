@@ -1,12 +1,17 @@
 from uuid import uuid4
 
 from django.db import models
+from django.contrib.auth.models import AbstractUser
 
 from core.apps.common.models import TimedBaseModel
 from core.apps.users.entities import UserEntity
 
 
-class User(TimedBaseModel):
+# class CustomUser(AbstractUser):
+#     ...
+
+
+class User(AbstractUser):
     phone = models.CharField(
         verbose_name='Телефон пользователя',
         max_length=20,
@@ -23,8 +28,10 @@ class User(TimedBaseModel):
         return UserEntity(phone=self.phone, created_at=self.created_at)
 
     def __str__(self) -> str:
-        return f'{self.phone}'
+        return f'{self.first_name}'
 
     class Meta:
         verbose_name = "Пользователь"
         verbose_name_plural = "Пользователи"
+
+

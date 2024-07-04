@@ -15,6 +15,13 @@ class Intensive(TimedBaseModel):
         max_length=limits.ML_COLOR_INTENSIVE,
     )
 
+    image = models.ImageField(
+        upload_to="intensives/",
+        verbose_name="Изображение интенсива",
+        null=True,
+        blank=True,
+    )
+
     def to_entity(self) -> IntensiveEntity:
         return IntensiveEntity(
             id=self.id,
@@ -22,6 +29,7 @@ class Intensive(TimedBaseModel):
             color=self.color,
             created_at=self.created_at,
             updated_at=self.updated_at,
+            image_url=self.image.url if self.image else None,
         )
 
     def __str__(self):

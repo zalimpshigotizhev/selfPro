@@ -3,6 +3,7 @@ from ninja import (
     Router,
 )
 from django.http import HttpRequest
+from ninja.security import django_auth
 
 from core.api.filters import PaginationIn
 from core.api.schemas import (
@@ -11,11 +12,14 @@ from core.api.schemas import (
     ListPaginatedResponse,
 )
 from core.api.v1.intensives.filters import IntensiveFilters
-from core.api.v1.intensives.schemas import IntensiveSchema
-from core.apps.intensives.services.intensive import (
-    ORMIntensiveService,
-    BaseIntensiveService,
+from core.api.v1.intensives.schemas import (
+    IntensiveCreate,
+    IntensiveSchema,
+    IntensiveSessionAdd,
 )
+from core.apps.intensives.containers import get_container
+from core.apps.intensives.services.intensive import BaseIntensiveService
+from core.apps.intensives.services.intensive_session import BaseIntensiveSessionService
 
 
 router = Router(tags=['INTENSIVE'])
@@ -27,7 +31,9 @@ def intensive_list(
     filters: Query[IntensiveFilters],
     pagination_in: Query[PaginationIn],
 ) -> ApiResponse[ListPaginatedResponse[IntensiveSchema]]:
-    service: BaseIntensiveService = ORMIntensiveService()
+    container = get_container()
+    
+    service = container.resolve(BaseIntensiveService)
     intensive_list = service.get_intensive_list(
         filters=filters,
         pagination=pagination_in,
@@ -44,3 +50,35 @@ def intensive_list(
     return ApiResponse(
         data=ListPaginatedResponse(items=items, pagination=pagination_out),
     )
+
+
+@router.post('')
+def intensive_create(
+    request: HttpRequest,
+    new_intensive: Query[IntensiveCreate],
+):
+    container = get_container()
+
+    service = container.resolve(BaseIntensiveService)
+
+    service.post_intensive_create(new_intensive)
+
+    return ApiResponse(data="ok") 
+
+
+@router.post('/{id}')
+def add_intensive_session(
+    request: HttpRequest,
+    id,
+    new_intensive: Query[IntensiveSessionAdd],
+):
+    container = get_container()
+    service = container.resolve(BaseIntensiveSessionService)
+
+    service.post_intensive_session(id, new_intensive)
+    return ApiResponse(data="ok")
+
+
+@router.get("/bearer", auth=django_auth)
+def bearer(request):
+    return {"token": request.auth}
